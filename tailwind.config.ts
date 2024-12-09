@@ -12,7 +12,7 @@ export default {
   		colors: {
   			DarkPrimary: '#2A254B',
   			Primary: '#4E4D93',
-  			LightGrey: '#F9F9F9',
+  			LightGrey: '#e6e6e6',
   			BorderGrey: '#EBE8F4',
   			White: '#FFFFFF',
   			BorderDark: '#CAC6DA',

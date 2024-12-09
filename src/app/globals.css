@@ -20,6 +20,9 @@
     @apply sm:py-24 py-12;
   }
   
+  .padding-t {
+    @apply sm:pt-24 pt-12;
+  }
 }
 
 @layer base {

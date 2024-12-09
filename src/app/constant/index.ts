@@ -4,6 +4,7 @@ import {
   img3,
   img4,
   img5,
+  img6,
   img7,
   img8,
   img9,
@@ -11,7 +12,6 @@ import {
   img11,
   img12,
   img13,
-  
 } from "./images";
 
 export const Featurescards = [
@@ -39,6 +39,7 @@ export const Featurescards = [
       "We use 100% recycled packaging to ensure our footprint is manageable",
   },
 ];
+ 
 
 export const populerproduct = [
   {
@@ -61,4 +62,63 @@ export const populerproduct = [
     name: "The Lucy Lamp",
     price: "£399",
   },
+];
+
+export const product = [
+  {
+    img: img13,
+    name: "The yellow chair",
+    price: "£980",
+  },
+  {
+    img: img8,
+    name: "The Dandy chair",
+    price: "£299",
+  },
+  {
+    img: img12,
+    name: "The Black chair",
+    price: "£299",
+  },
+  {
+    img: img11,
+    name: "The Lucy Lamp",
+    price: "£299",
+  },
+];
+  
+export const allProducts = [...populerproduct, ...product];
+
+export const footerLinks = [
+  {
+    title: "Menu",
+    links: [
+      { name: "New arrivals", link: "/" },
+      { name: "Best sellers", link: "/" },
+      { name: "Recently viewed", link: "/" },
+      { name: "Popular this week", link: "/" },
+      { name: "All products", link: "/" },
+    ],
+  },
+  {
+    title: "Categories",
+    links: [
+      { name: "Crockery", link: "/" },
+      { name: "Furniture", link: "/" },
+      { name: "Homeware", link: "/" },
+      { name: "Plant pots", link: "/" },
+      { name: "Chairs", link: "/" },
+    ],
+
+  },
+  {
+    title: "Our company",
+    links: [
+      { name: "About us", link: "/" },
+      { name: "Vacancies", link: "/" },
+      { name: "Contact us", link: "/" },
+      { name: "Privacy", link: "/" },
+      { name: "Returns policy", link: "/" },
+    ],
+  }
 ];

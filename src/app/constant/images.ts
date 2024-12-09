@@ -5,6 +5,7 @@ import img4 from "/public/assets/Sprout.png";
 
 
 import img5 from "/public/assets/Frame.png";
+import img6 from "/public/assets/img6.png";
 import img7 from "/public/assets/image2.png";
 import img8 from "/public/assets/photo.png";
 import img9 from "/public/assets/photo1.png";
@@ -22,6 +23,7 @@ export {
   img3,
   img4,
   img5,
+  img6,
   img7,
   img8,
   img9,

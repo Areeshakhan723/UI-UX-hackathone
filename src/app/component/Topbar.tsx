@@ -17,19 +17,21 @@ const Topbar = () => {
         </div>
         <header className="p-5 max-lg:hidden">
           <ul className="text-[#726E8D] flex justify-center items-center gap-6 md:text-[16px] lg:text-[18px] max-lg:hidden">
-            <li className="navbar_li">
+            <li>
               <Link href="/">Home</Link>
             </li>
-            <li className="navbar_li">
+            <li>
               <Link href="/Sections/About">About</Link>
             </li>
-            <li className="navbar_li">
-              <Link href="/Sections/Services">Services</Link>
+            <li>
+              <Link href="/Sections/Plantpots">Plant pots</Link>
             </li>
-            <li className="navbar_li">
-              <Link href="/Sections/Skills">Skills</Link>
+            <li>
+              <Link href="/Sections/Ceramics">Ceramics</Link>
             </li>
-            
+            <li>
+              <Link href="/Sections/All Products">All Products</Link>
+            </li>
           </ul>
         </header>
       </nav>
