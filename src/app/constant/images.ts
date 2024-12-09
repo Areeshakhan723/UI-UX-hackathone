@@ -1,21 +1,18 @@
-import img1 from "/public/assets/Delivery.png";
-import img2 from "/public/assets/Checkmark--outline.png";
-import img3 from "/public/assets/Purchase.png";
-import img4 from "/public/assets/Sprout.png";
-
-
-import img5 from "/public/assets/Frame.png";
-import img6 from "/public/assets/img6.png";
-import img7 from "/public/assets/image2.png";
-import img8 from "/public/assets/photo.png";
-import img9 from "/public/assets/photo1.png";
-
-import img10 from "/public/assets/photo2.png";
-import img11 from "/public/assets/photo3.png";
-import img12 from "/public/assets/photo4.png";
-import img13 from "/public/assets/photo5.png";
-import img14 from "/public/assets/imageBlock.png";
-import img15 from "/public/assets/imageleft.png";
+const img1 = "/assets/Delivery.png";
+const img2 = "/assets/Checkmark--outline.png";
+const img3 = "/assets/Purchase.png";
+const img4 = "/assets/Sprout.png";
+const img5 = "/assets/Frame.png";
+const img6 = "/assets/img6.png";
+const img7 = "/assets/image2.png";
+const img8 = "/assets/photo.png";
+const img9 = "/assets/photo1.png";
+const img10 = "/assets/photo2.png";
+const img11 = "/assets/photo3.png";
+const img12 = "/assets/photo4.png";
+const img13 = "/assets/photo5.png";
+const img14 = "/assets/imageBlock.png";
+const img15 = "/assets/imageleft.png";
 
 export {
   img1,
@@ -32,5 +29,5 @@ export {
   img12,
   img13,
   img14,
-  img15
+  img15,
 };

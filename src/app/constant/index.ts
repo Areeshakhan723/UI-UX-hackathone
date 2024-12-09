@@ -3,9 +3,6 @@ import {
   img2,
   img3,
   img4,
-  img5,
-  img6,
-  img7,
   img8,
   img9,
   img10,
@@ -86,7 +83,7 @@ export const product = [
     price: "£299",
   },
 ];
-  
+
 export const allProducts = [...populerproduct, ...product];
 
 export const footerLinks = [

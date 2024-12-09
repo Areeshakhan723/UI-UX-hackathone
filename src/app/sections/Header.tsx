@@ -29,6 +29,7 @@ const Header = () => {
           src={img8}
           alt="header Image"
           width={420}
+          height={500}
           className="object-fill h-[500px]"
         />
       </div>
