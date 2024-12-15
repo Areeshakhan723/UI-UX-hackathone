@@ -1,6 +1,6 @@
 # UI/UX E-Commerce Website
 
-This project is an e-commerce website developed during a hackathon challenge. The website focuses on UI/UX design and features a fully responsive interface. It was built using **Next.js**, **Tailwind CSS**, and **TypeScript**, and deployed on **Vercel**.
+This project is an E-commerce website developed during a hackathon challenge. The website focuses on UI/UX design and features a fully responsive interface. It was built using **Next.js**, **Tailwind CSS**, and **TypeScript**, and deployed on **Vercel**.
 
 ![image](https://github.com/user-attachments/assets/5c8ae2e4-358c-4ff6-be1d-1a08d1273579)
 
