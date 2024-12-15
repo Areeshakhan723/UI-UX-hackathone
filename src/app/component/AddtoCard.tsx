@@ -13,7 +13,7 @@ const AddtoCard = ({product}: {product: { img: string; name: string; price: numb
   return (
     <div className="text-center">
       <button
-        className="bg-DarkPrimary text-center text-sm font-medium text-LightGrey px-5 py-4"
+        className="bg-DarkPrimary text-center text-sm font-medium text-LightGrey px-5 py-4 hover:bg-Primary"
         onClick={handleCardItems}
       >
         Add To Card

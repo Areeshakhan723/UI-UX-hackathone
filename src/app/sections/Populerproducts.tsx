@@ -40,7 +40,7 @@ const Populerproducts = () => {
 
       <div className="mt-10 text-center pb-4">
         <Link href={"/sections/Plants"}>
-        <button className="text-DarkPrimary text-center text-sm font-medium bg-LightGrey  px-4 py-3">
+        <button className="text-DarkPrimary text-center text-sm font-medium bg-LightGrey px-4 py-3 translate transition duration-300 hover:scale-105 hover:bg-DarkPrimary hover:text-LightGrey">
           View Collection
         </button>
         </Link>
