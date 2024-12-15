@@ -84,8 +84,73 @@ export const product = [
   },
 ];
 
-export const allProducts = [...populerproduct, ...product];
+export const productlists = [
+  {
+    img: img13,
+    name: "The yellow chair",
+    price: "£980",
+  },
+  {
+    img: img8,
+    name: "The Dandy chair",
+    price: "£299",
+  },
+  {
+    img: img12,
+    name: "The Black chair",
+    price: "£299",
+  },
+  {
+    img: img11,
+    name: "The Lucy Lamp",
+    price: "£299",
+  },
+  {
+    img: img8,
+    name: "The Dandy chair",
+    price: "£250",
+  },
+  {
+    img: img11,
+    name: "The Lucy Lamp",
+    price: "£399",
+  },
+  {
+    img: img13,
+    name: "The yellow chair",
+    price: "£980",
+  },
+  {
+    img: img9,
+    name: "Rustic Vase Set",
+    price: "£155",
+  },
+  {
+    img: img10,
+    name: "The Silky Vase",
+    price: "£125",
+  },
+ 
+  {
+    img: img8,
+    name: "The Dandy chair",
+    price: "£299",
+  },
+  {
+    img: img12,
+    name: "The Black chair",
+    price: "£299",
+  },
+  {
+    img: img11,
+    name: "The Lucy Lamp",
+    price: "£299",
+  },
+];
 
+export const allProducts = [...populerproduct, ...product, ...productlists];
+
+// footer links
 export const footerLinks = [
   {
     title: "Menu",

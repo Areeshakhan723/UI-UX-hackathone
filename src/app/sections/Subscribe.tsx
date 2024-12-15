@@ -2,7 +2,7 @@ import React from "react";
 
 const Subscribe = () => {
   return (
-    <div className="padding bg-LightGrey w-full">
+    <div className="max-acontainer padding bg-LightGrey w-full">
       <div className="bg-white flex justify-center items-center flex-col h-auto max-lg:p-3">
         <div className="max-w-[680px] ">
           <h1 className="text-center text-black text-[30px] padding-t">

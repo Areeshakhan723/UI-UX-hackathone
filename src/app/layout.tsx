@@ -1,17 +1,8 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
-import  Topbar from "../app/component/Topbar";
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+import Footer from "./sections/Footer";
+import { QuantityProvider } from "../app/context/QuantityContext";
+import { CartProvider } from "./context/CardContext";
 
 export const metadata: Metadata = {
   title: "UI-UX-Hackathone",
@@ -25,11 +16,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Topbar />
-       {children}
+      <body>
+      <CartProvider>
+      <QuantityProvider>
+        {children}
+      </QuantityProvider>
+    </CartProvider>
+        <Footer />
       </body>
     </html>
   );

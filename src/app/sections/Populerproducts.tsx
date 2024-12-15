@@ -21,7 +21,8 @@ const Populerproducts = () => {
                   alt="products"
                   height={375}
                   width={305}
-                  className="max-lg:w-[270px] max-lg:h-[300px]"
+                  priority
+                  className="w-auto h-auto max-lg:w-[270px] max-lg:h-[300px] translate transition duration-300 ease-in-out hover:scale-105"
                 />
                 <div className="mt-3">
                   <h2 className="text-DarkPrimary text-lg leading-normal">
@@ -38,34 +39,14 @@ const Populerproducts = () => {
       </div>
 
       <div className="mt-10 text-center pb-4">
+        <Link href={"/sections/Plants"}>
         <button className="text-DarkPrimary text-center text-sm font-medium bg-LightGrey  px-4 py-3">
           View Collection
         </button>
+        </Link>
       </div>
     </div>
   );
 };
 
 export default Populerproducts;
-
-// import Link from "next/link";
-// import { product } from "../constant/index";
-// import Image from "next/image";
-
-// const Populerproducts = () => {
-//   return (
-//     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-//       {product.map((item, index) => (
-//         <div key={index}>
-//           <Link href={`/sections/${item.name.toLowerCase().replace(/ /g, "-")}`}>
-//             <Image src={item.img} alt={item.name} width={300} height={200} />
-//             <h2>{item.name}</h2>
-//             <p>{item.price}</p>
-//           </Link>
-//         </div>
-//       ))}
-//     </div>
-//   );
-// };
-
-// export default Populerproducts;

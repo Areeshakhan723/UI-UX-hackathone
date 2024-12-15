@@ -1,17 +1,21 @@
+"use client";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { AlignJustify } from "lucide-react";
+import { AlignJustify, Search } from "lucide-react";
 import Link from "next/link";
-import { Search } from "lucide-react";
+import ShoppingIcon from "./ShoppingIcon";
 
 const MobileNav = () => {
   return (
-    <div className="hidden max-lg:block ">
+    <div className="hidden max-lg:block">
       <Sheet>
         <SheetTrigger className="p-4 w-full flex justify-between items-center border-b-2 border-BorderGrey">
           <div>
             <h1 className="text-black text-[24px]">Avion</h1>
           </div>
           <div className="flex justify-center items-center gap-3">
+            {/* shopping component */}
+            <ShoppingIcon />
+
             <Search className="cursor-pointer" />
             <AlignJustify />
           </div>
@@ -23,16 +27,16 @@ const MobileNav = () => {
                 <Link href="/">Home</Link>
               </li>
               <li>
-                <Link href="/Sections/About">About</Link>
+                <Link href="/sections/About">About</Link>
               </li>
               <li>
-                <Link href="/Sections/Plantpots">Plant pots</Link>
+                <Link href="/sections/Plants">All Products</Link>
               </li>
               <li>
-                <Link href="/Sections/Ceramics">Ceramics</Link>
+                <Link href="/sections/Cart">Cart</Link>
               </li>
               <li>
-                <Link href="/Sections/All Products">All Products</Link>
+                <Link href="/sections/Signup">SignUp</Link>
               </li>
             </ul>
           </nav>

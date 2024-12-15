@@ -3,8 +3,7 @@ import Features from "./sections/Features";
 import Ceramics from "./sections/Ceramics";
 import Populerproducts from "./sections/Populerproducts";
 import Subscribe from "./sections/Subscribe";
-import Intouch from "./sections/Intouch"
-import Footer from "./sections/Footer";
+import Intouch from "./sections/Intouch";
 
 export default function Home() {
   return (
@@ -15,7 +14,6 @@ export default function Home() {
       <Populerproducts />
       <Subscribe />
       <Intouch />
-      <Footer/>
     </>
   );
 }

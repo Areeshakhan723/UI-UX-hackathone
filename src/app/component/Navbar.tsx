@@ -1,6 +1,10 @@
-import { Search, CircleUser, ShoppingCart } from "lucide-react";
+// Topbar.tsx
+"use client";
+import { Search, CircleUser } from "lucide-react";
 import Link from "next/link";
 import MobileNavbar from "./MobileNavbar";
+import ShoppingIcon from "./ShoppingIcon";
+
 const Topbar = () => {
   return (
     <>
@@ -11,7 +15,9 @@ const Topbar = () => {
           </div>
           <h1 className="text-black text-[24px]">Avion</h1>
           <div className="flex justify-center items-center gap-3">
-            <ShoppingCart />
+            {/* shopping component */}
+            <ShoppingIcon />
+
             <CircleUser />
           </div>
         </div>
@@ -21,17 +27,18 @@ const Topbar = () => {
               <Link href="/">Home</Link>
             </li>
             <li>
-              <Link href="/Sections/About">About</Link>
+              <Link href="/sections/About">About</Link>
             </li>
             <li>
-              <Link href="/Sections/Plantpots">Plant pots</Link>
+              <Link href="/sections/Plants">All Products</Link>
             </li>
             <li>
-              <Link href="/Sections/Ceramics">Ceramics</Link>
+              <Link href="/sections/Cart">Cart</Link>
             </li>
             <li>
-              <Link href="/Sections/All Products">All Products</Link>
+              <Link href="/sections/Signup">SignUp</Link>
             </li>
+            
           </ul>
         </header>
       </nav>

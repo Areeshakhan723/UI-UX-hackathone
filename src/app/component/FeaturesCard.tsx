@@ -13,7 +13,7 @@ const FeaturesCard = ({
   return (
     <div className="flex justify-center items-center">
       <div className="flex justify-start items-start flex-col gap-3 border border-LightGrey p-2">
-        <Image src={imgicon} alt="Features icon" height={30} width={30} />
+        <Image src={imgicon} alt="Features icon" height={30} width={30}/>
 
         <div className="mt-2 w-[300px]">
           <h1 className="text-lg leading-normal">{title}</h1>

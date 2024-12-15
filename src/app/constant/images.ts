@@ -13,6 +13,8 @@ const img12 = "/assets/photo4.png";
 const img13 = "/assets/photo5.png";
 const img14 = "/assets/imageBlock.png";
 const img15 = "/assets/imageleft.png";
+const img16 = "/assets/image1.png";
+const img17 = "/assets/banner.png";
 
 export {
   img1,
@@ -30,4 +32,6 @@ export {
   img13,
   img14,
   img15,
+  img16,
+  img17
 };
