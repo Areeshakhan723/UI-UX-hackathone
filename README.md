@@ -2,9 +2,12 @@
 
 This project is an e-commerce website developed during a hackathon challenge. The website focuses on UI/UX design and features a fully responsive interface. It was built using **Next.js**, **Tailwind CSS**, and **TypeScript**, and deployed on **Vercel**.
 
+![image](https://github.com/user-attachments/assets/5c8ae2e4-358c-4ff6-be1d-1a08d1273579)
+
+
 ## Live Demo
 
-Check out the live version of the project: [Live Demo](https://ui-ux-hackathone-six.vercel.app)
+Check out the live version of the project: (https://ui-ux-hackathone-six.vercel.app)
 
 ---
 
@@ -25,10 +28,3 @@ Check out the live version of the project: [Live Demo](https://ui-ux-hackathone-
 - **TypeScript**: Enhances JavaScript with static typing.
 - **Vercel**: Deployment platform for modern web projects.
 
----
-
-## Screenshots
-
-![Home Page](https://via.placeholder.com/800x400 "Home Page Screenshot")
-![Product Details](https://via.placeholder.com/800x400 "Product Details Screenshot")
-![Shopping Cart](https://via.placeholder.com/800x400 "Shopping Cart Screenshot")
