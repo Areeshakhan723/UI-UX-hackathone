@@ -3,12 +3,6 @@ import {
   img2,
   img3,
   img4,
-  img8,
-  img9,
-  img10,
-  img11,
-  img12,
-  img13,
 } from "./images";
 
 export const Featurescards = [
@@ -40,22 +34,22 @@ export const Featurescards = [
 
 export const populerproduct = [
   {
-    img: img8,
+    img: "/assets/Photo.png",
     name: "The Dandy chair",
     price: "£250",
   },
   {
-    img: img9,
+    img: "/assets/Photo1.png",
     name: "Rustic Vase Set",
     price: "£155",
   },
   {
-    img: img10,
+    img: "/assets/Photo2.png",
     name: "The Silky Vase",
     price: "£125",
   },
   {
-    img: img11,
+    img: "/assets/Photo3.png",
     name: "The Lucy Lamp",
     price: "£399",
   },
@@ -63,22 +57,22 @@ export const populerproduct = [
 
 export const product = [
   {
-    img: img13,
+    img: "/assets/Photo5.png",
     name: "The yellow chair",
     price: "£980",
   },
   {
-    img: img8,
+    img: "/assets/Photo.png",
     name: "The Dandy chair",
     price: "£299",
   },
   {
-    img: img12,
+    img: "/assets/Photo4.png",
     name: "The Black chair",
     price: "£299",
   },
   {
-    img: img11,
+    img: "/assets/Photo3.png",
     name: "The Lucy Lamp",
     price: "£299",
   },
@@ -86,63 +80,63 @@ export const product = [
 
 export const productlists = [
   {
-    img: img13,
+    img: "/assets/Photo5.png",
     name: "The yellow chair",
     price: "£980",
   },
   {
-    img: img8,
+    img: "/assets/Photo.png",
     name: "The Dandy chair",
     price: "£299",
   },
   {
-    img: img12,
+    img: "/assets/Photo4.png",
     name: "The Black chair",
     price: "£299",
   },
   {
-    img: img11,
+    img: "/assets/Photo3.png",
     name: "The Lucy Lamp",
     price: "£299",
   },
   {
-    img: img8,
+    img: "/assets/Photo.png",
     name: "The Dandy chair",
     price: "£250",
   },
   {
-    img: img11,
+    img: "/assets/Photo3.png",
     name: "The Lucy Lamp",
     price: "£399",
   },
   {
-    img: img13,
+    img: "/assets/Photo5.png",
     name: "The yellow chair",
     price: "£980",
   },
   {
-    img: img9,
+    img: "/assets/Photo1.png",
     name: "Rustic Vase Set",
     price: "£155",
   },
   {
-    img: img10,
+    img: "/assets/Photo2.png",
     name: "The Silky Vase",
     price: "£125",
   },
  
   {
-    img: img8,
+    img: "/assets/Photo.png",
     name: "The Dandy chair",
     price: "£299",
   },
   {
-    img: img12,
+    img: "/assets/Photo4.png",
     name: "The Black chair",
     price: "£299",
   },
   {
-    img: img11,
+    img: "/assets/Photo3.png",
     name: "The Lucy Lamp",
     price: "£299",
   },

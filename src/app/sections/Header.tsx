@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { img8 } from "../constant/images";
 import Navbar from "../component/Navbar";
 const Header = () => {
   return (
@@ -29,7 +28,7 @@ const Header = () => {
 
         <div className="max-md:hidden">
           <Image
-            src={img8}
+            src={"/assets/Photo.png"}
             alt="header Image"
             width={420}
             height={500}
