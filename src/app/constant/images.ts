@@ -6,7 +6,7 @@ const img5 = "/assets/Frame.png";
 const img6 = "/assets/img6.png";
 const img7 = "/assets/image2.png";
 const img14 = "/assets/imageBlock.png";
-const img15 = "/assets/imageleft.png";
+
 const img16 = "/assets/image1.png";
 const img17 = "/assets/banner.png";
 
@@ -19,7 +19,6 @@ export {
   img6,
   img7,
   img14,
-  img15,
   img16,
   img17
 };

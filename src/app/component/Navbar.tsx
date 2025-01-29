@@ -1,17 +1,20 @@
 // Topbar.tsx
 "use client";
-import { Search, CircleUser } from "lucide-react";
+import {  CircleUser } from "lucide-react";
 import Link from "next/link";
 import MobileNavbar from "./MobileNavbar";
 import ShoppingIcon from "./ShoppingIcon";
+import SearchComponent from "@/app/component/SearchComponent";
 
 const Topbar = () => {
+
   return (
     <>
       <nav className="max-container">
         <div className="p-2 flex justify-between items-center border-b-2 border-BorderGrey max-lg:hidden">
           <div>
-            <Search className="cursor-pointer" />
+          {/* Add Search Component */}
+          <SearchComponent />
           </div>
           <h1 className="text-black text-[24px]">Avion</h1>
           <div className="flex justify-center items-center gap-3">
@@ -30,7 +33,7 @@ const Topbar = () => {
               <Link href="/sections/About">About</Link>
             </li>
             <li>
-              <Link href="/sections/Plants">All Products</Link>
+              <Link href="/sections/Allproducts">All Products</Link>
             </li>
             <li>
               <Link href="/sections/Cart">Cart</Link>

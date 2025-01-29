@@ -1,44 +1,43 @@
+"use client";
+import { use, useEffect, useState } from "react";
 import { client } from "@/sanity/lib/client";
+import { ProductTypes } from "../../../../types/products";
+import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
 import Link from "next/link";
 import Topnav from "@/app/component/Topnav";
 import MobileNav from "@/app/component/MobileNavbar";
 import QuantityButton from "@/app/component/QuantityButton";
 import AddtoCard from "@/app/component/AddtoCard";
-import { notFound } from "next/navigation";
-import { ProductTypes } from "../../../../types/products";
-import { urlFor } from "@/sanity/lib/image";
-import Ceramics from "../Ceramics";
-import Features from "../Features";
-import Subscribe from "../Subscribe";
 
-const Page = async ({ params }: { params: Promise<{ productsName: string }> }) => {
-  const { productsName } = await params;
+const Page = ({ params }: { params: Promise<{ id: string }> }) => {
+  const { id } = use(params); 
 
-  // Fetch the product data
-  const product: ProductTypes | null = await client.fetch(
-    `*[_type == "product" && slug.current == $slug][0]{
-      _id,
-      name,
-      price,
-      description,
-      "image": image.asset->url,
-      tags,
-      dimensions,
-      features
-    }`,
-    { slug: productsName }
-  );
+  const [product, setProduct] = useState<ProductTypes | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
 
-  if (!product) {
-    notFound();
-  }
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        const query = `*[_type == "product" && _id == $id][0]`;
+        const fetchedProduct: ProductTypes = await client.fetch(query, { id });
+        setProduct(fetchedProduct);
+      } catch (error) {
+        console.error("Error fetching product:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProduct();
+  }, [id]);
+
+  if (loading) return <p>Loading product details...</p>;
+  if (!product) return <p>Product not found.</p>;
 
   return (
-    <>
-      <div className="w-full">
-        <Topnav />
-      </div>
+    <div>
+      <Topnav />
       <MobileNav />
       <div className="max-container pt-14 padding-x">
         <div className="flex justify-start items-start gap-24 max-lg:flex-col">
@@ -53,11 +52,17 @@ const Page = async ({ params }: { params: Promise<{ productsName: string }> }) =
             />
           </div>
           <div className="flex justify-center flex-col">
-            <h1 className="text-2xl text-black tracking-wide">{product.name}</h1>
-            <p className="text-lg mt-2 text-black tracking-wide">${product.price}</p>
+            <h1 className="text-2xl text-black tracking-wide">
+              {product.name}
+            </h1>
+            <p className="text-lg mt-2 text-black tracking-wide">
+              ${product.price}
+            </p>
             <div className="mt-8 w-full">
               <h4 className="text-lg text-gray-600">Description</h4>
-              <p className="max-w-[500px] mt-5 text-gray-600">{product.description}</p>
+              <p className="max-w-[500px] mt-5 text-gray-600">
+                {product.description}
+              </p>
               <div className="mt-5">
                 <h4 className="text-lg text-gray-600">Features:</h4>
                 <ul className="mt-5 text-gray-600 list-disc pl-5">
@@ -68,35 +73,51 @@ const Page = async ({ params }: { params: Promise<{ productsName: string }> }) =
               </div>
               <div className="mt-5 flex gap-2 flex-wrap">
                 {product.tags.map((tag, index) => (
-                  <span key={index} className="px-2 py-1 text-sm bg-gray-200 text-gray-700 rounded-lg">
+                  <span
+                    key={index}
+                    className="px-2 py-1 text-sm bg-gray-200 text-gray-700 rounded-lg"
+                  >
                     {tag}
                   </span>
                 ))}
               </div>
+              <div className="mt-5">
+                <p className="text-black text-lg">
+                  Quantity : {product.quantity}
+                </p>
+              </div>
             </div>
-            <div className="mt-3">
+            <div className="mt-10">
               <p className="text-lg text-gray-600">Dimensions</p>
               <div className="flex justify-between w-[350px] mt-5 max-lg:w-[300px]">
                 <div>
                   <p>Height</p>
-                  <p className="text-gray-600 mt-1">{product.dimensions.height}</p>
+                  <p className="text-gray-600 mt-1">
+                    {product.dimensions.height}
+                  </p>
                 </div>
                 <div>
                   <p>Width</p>
-                  <p className="text-gray-600 mt-1">{product.dimensions.width}</p>
+                  <p className="text-gray-600 mt-1">
+                    {product.dimensions.width}
+                  </p>
                 </div>
                 <div>
                   <p>Depth</p>
-                  <p className="text-gray-600 mt-1">{product.dimensions.depth}</p>
+                  <p className="text-gray-600 mt-1">
+                    {product.dimensions.depth}
+                  </p>
                 </div>
               </div>
             </div>
+            {/* Buttons */}
             <div className="mt-10 flex justify-between items-center max-lg:flex-col">
               <div className="flex justify-between items-center gap-10 flex-row">
                 <p className="text-lg">Quantity</p>
                 <QuantityButton />
               </div>
-              <div className="max-lg:m-6">
+              {/* Add to cart button */}
+              <div className="max-lg:m-6 mb-3">
                 <Link href="/sections/Cart">
                   <AddtoCard
                     product={{
@@ -111,13 +132,7 @@ const Page = async ({ params }: { params: Promise<{ productsName: string }> }) =
           </div>
         </div>
       </div>
-      <div className="mt-10 ">
-        <h1 className="text-black text-center text-[30px] max-sm:text-[24px]">You might also like</h1>
-        <Ceramics />
-      </div>
-      <Features />
-      <Subscribe />
-    </>
+    </div>
   );
 };
 

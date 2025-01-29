@@ -2,7 +2,7 @@ import Image from "next/image";
 import { img7 } from "../constant/images";
 const Intouch = () => {
   return (
-    <div className="bg-white max-container  w-full flex justify-between items-center max-lg:flex-col max-lg:gap-6 max-lg:padding-y">
+    <div className="bg-white max-container w-full flex justify-between items-center max-lg:flex-col max-lg:gap-6 max-lg:padding-y">
       <div className="max-md:h-auto padding-x">
         <h1 className="text-DarkPrimary text-[32px] max-lg:text-[28px] max-w-[570px] leading-10">
           From a studio in London to a global brand with over 400 outlets

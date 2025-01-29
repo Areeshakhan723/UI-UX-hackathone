@@ -19,12 +19,10 @@ export const QuantityProvider = ({ children }: { children: ReactNode }) => {
   const [quantity, setQuantity] = useState<number>(0);
 
   const increaseQuantity = () => setQuantity((prev) => prev + 1);
-  const decreaseQuantity = () =>
-    setQuantity((prev) => (prev > 1 ? prev -1 : prev));
+  const decreaseQuantity = () => setQuantity((prev) => (prev > 1 ? prev -1 : prev));
   
   return (
-    <QuantityContext.Provider value={{ quantity, increaseQuantity, decreaseQuantity }}
-    >
+    <QuantityContext.Provider value={{ quantity, increaseQuantity, decreaseQuantity }}>
       {children}
     </QuantityContext.Provider>
   );

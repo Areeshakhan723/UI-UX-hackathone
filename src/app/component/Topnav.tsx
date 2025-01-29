@@ -1,8 +1,11 @@
 "use client";
-import { CircleUser, Search, Truck } from "lucide-react";
+import { CircleUser,  Truck } from "lucide-react";
 import Link from "next/link";
 import ShoppingIcon from "./ShoppingIcon";
+import SearchComponent from "@/app/component/SearchComponent";
+
 const Topnav = () => {
+
   return (
     <>
       <div className="bg-DarkPrimary py-3 h-auto">
@@ -26,7 +29,7 @@ const Topnav = () => {
               <Link href="/sections/About">About</Link>
             </li>
             <li>
-              <Link href="/sections/Plants">All Products</Link>
+              <Link href="/sections/Allproducts">All Products</Link>
             </li>
             <li>
               <Link href="/sections/Cart">Cart</Link>
@@ -38,8 +41,9 @@ const Topnav = () => {
           </ul>
         </header>
         <div className="flex justify-center items-center gap-3">
-          <Search className="cursor-pointer" />
-
+          
+          {/* Add Search Component */}
+          <SearchComponent />
           {/* shopping component */}
           <ShoppingIcon />
 

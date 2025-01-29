@@ -3,6 +3,9 @@ import "./globals.css";
 import Footer from "./sections/Footer";
 import { QuantityProvider } from "../app/context/QuantityContext";
 import { CartProvider } from "./context/CardContext";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 export const metadata: Metadata = {
   title: "UI-UX-Hackathone",
@@ -17,11 +20,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-      <CartProvider>
-      <QuantityProvider>
-        {children}
-      </QuantityProvider>
-    </CartProvider>
+        <CartProvider>
+        <ToastContainer />
+          <QuantityProvider>{children}</QuantityProvider>
+        </CartProvider>
         <Footer />
       </body>
     </html>

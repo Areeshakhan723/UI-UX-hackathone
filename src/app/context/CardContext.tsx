@@ -1,11 +1,11 @@
-// context/CartContext.tsx
 "use client";
-import React, { createContext, ReactNode, useContext, useState } from "react";
+import { StaticImageData } from "next/image";
+import { useContext, createContext, useState, ReactNode } from "react";
 
 type CartItem = {
-  img: string;
+  img: string | StaticImageData;
   name: string;
-  price: number;
+  price: number | string;
   quantity: number;
 };
 
@@ -13,6 +13,7 @@ type CartType = {
   cartItems: CartItem[];
   addToCart: (item: CartItem) => void;
   getSubTotal: () => number;
+  removeFromCart: (itemName: string) => void;
 };
 
 const CartContext = createContext<CartType | undefined>(undefined);
@@ -20,6 +21,7 @@ const CartContext = createContext<CartType | undefined>(undefined);
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
+  // addede product function
   const addToCart = (item: CartItem) => {
     console.log("Cart Items:", cartItems);
 
@@ -50,8 +52,17 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     return isNaN(total) ? 0 : total;
   };
 
+  // Remove Product
+  const removeFromCart = (itemName: string) => {
+    setCartItems((prevItems) =>
+      prevItems.filter((item) => item.name !== itemName)
+    );
+  };
+
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, getSubTotal }}>
+    <CartContext.Provider
+      value={{ cartItems, addToCart, getSubTotal, removeFromCart }}
+    >
       {children}
     </CartContext.Provider>
   );
@@ -64,3 +75,5 @@ export const useCart = () => {
   }
   return context;
 };
+
+export default CartProvider;

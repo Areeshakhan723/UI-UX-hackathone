@@ -30,7 +30,7 @@ const MobileNav = () => {
                 <Link href="/sections/About">About</Link>
               </li>
               <li>
-                <Link href="/sections/Plants">All Products</Link>
+                <Link href="/sections/Allproducts">All Products</Link>
               </li>
               <li>
                 <Link href="/sections/Cart">Cart</Link>
