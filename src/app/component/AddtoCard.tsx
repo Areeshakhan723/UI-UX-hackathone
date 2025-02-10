@@ -2,41 +2,41 @@
 
 import { Bounce, toast } from "react-toastify";
 import { useCart } from "../context/CardContext";
+import { ProductTypes } from "../../../types/products";
 
-const AddtoCard = ({
-  product,
-}: {
-  product: { img: string; name: string; price: number };
-}) => {
+const AddToCart = ({ product }: { product: ProductTypes }) => {
   const { addToCart } = useCart();
 
-  const handleCardItems = () => {
-    // Add product to cart
-    addToCart({ ...product, quantity: 1 });
+  const handleAddToCart = () => {
+    const formattedProduct: ProductTypes = {
+      ...product,
+      quantity: 1, // Ensure quantity is set
+    };
 
-    // Display toast notification
+    addToCart(formattedProduct);
+
     toast("🛒 Added to Cart!", {
       position: "top-right",
-      autoClose: 3000, // Adjust auto-close timing as needed
+      autoClose: 3000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
-      progress: undefined,
       theme: "light",
       transition: Bounce,
     });
   };
+
   return (
     <div className="text-center">
       <button
-        className="bg-DarkPrimary text-center text-sm font-medium text-LightGrey px-5 py-4 hover:bg-Primary"
-        onClick={handleCardItems}
+        className="bg-DarkPrimary text-sm font-medium text-LightGrey px-5 py-4 hover:bg-Primary"
+        onClick={handleAddToCart}
       >
-        Add To Card
+        Add To Cart
       </button>
     </div>
   );
 };
 
-export default AddtoCard;
+export default AddToCart;

@@ -3,6 +3,8 @@
 import Navbar from "../../component/Navbar";
 import Image from "next/image";
 import { useCart } from "@/app/context/CardContext";
+import Link from "next/link";
+import { urlFor } from "@/sanity/lib/image";
 
 const Page = () => {
   const { cartItems, getSubTotal, removeFromCart } = useCart();
@@ -31,7 +33,7 @@ const Page = () => {
                 </div>
               </div>
 
-              {cartItems.map((items, index) => (
+              {cartItems.map((product, index) => (
                 <div
                   key={index}
                   className="flex justify-between p-6 max-md:flex max-md:flex-col max-md:justify-between "
@@ -39,17 +41,18 @@ const Page = () => {
                   <div>
                     <div className="flex ">
                       <Image
-                        src={items.img}
-                        alt={items.name}
+                        // src={urlFor(product.image).url()}
+                        src={product.image ? urlFor(product.image)?.url() : "/fallback-image.jpg"}
+                        alt={product.name}
                         width={100}
                         height={100}
                         className="w-[100px] h-[100px]"
                       />
                       <div className="flex flex-col p-3">
-                        <h1 className="text-lg">{items.name}</h1>
-                        <p>{items.price}$</p>
+                        <h1 className="text-lg">{product.name}</h1>
+                        <p>{product.price}$</p>
                         <div className="hidden max-md:block mt-3">
-                          <p>{items.quantity}</p>
+                          <p>{product.quantity}</p>
                         </div>
                       </div>
                     </div>
@@ -58,7 +61,7 @@ const Page = () => {
                   <div className="flex lg:px-7 mr-52 ">
                     <div className="max-md:hidden max-lg:block">
                       <p className="bg-[rgb(226,223,223)] px-5 text-center ">
-                        {items.quantity}
+                        {product.quantity}
                       </p>
                     </div>
                     <div>
@@ -67,14 +70,14 @@ const Page = () => {
                         alt="delete icon"
                         width={24}
                         height={24}
-                        onClick={() => handleRemove(items.name)} // Delete the item when clicked
+                        onClick={() => handleRemove(product.name)} // Delete the item when clicked
                         className="cursor-pointer"
                       />
                     </div>
                   </div>
                     
                   <div className="max-md:hidden max-lg:block">
-                    <p className="text-center">{items.price}</p>
+                    <p className="text-center">{product.price}</p>
                   </div>
                 </div>
               ))}
@@ -97,8 +100,8 @@ const Page = () => {
                   </p>
                 </div>
                 <div>
-                  <button className="bg-DarkPrimary text-center text-sm font-medium text-LightGrey px-5 py-4">
-                    Go to checkout
+                  <button className="bg-DarkPrimary text-center hover:bg-Primary text-sm font-medium text-LightGrey px-5 py-4">
+                  <Link href="/sections/Checkout">Go to checkout</Link>
                   </button>
                 </div>
               </div>

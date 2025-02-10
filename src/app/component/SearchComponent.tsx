@@ -61,7 +61,7 @@ const SearchComponent = () => {
         {/* Show search input only when showInput is true */}
         {showInput && (
           <SearchInput
-            className="search-input w-full z-50 mt-2 outline-none"
+            className="search-input w-full z-50 mt-2 outline-none flex justify-center items-center"
             onChange={searchUpdated}
             placeholder="Search for a product..."
           />

@@ -12,7 +12,11 @@ import Ceramics from "../Ceramics";
 import Features from "../Features";
 import Subscribe from "../Subscribe";
 
-const Page = async ({ params }: { params: Promise<{ productsName: string }> }) => {
+const Page = async ({
+  params,
+}: {
+  params: Promise<{ productsName: string }>;
+}) => {
   const { productsName } = await params;
 
   // Fetch the product data
@@ -53,11 +57,17 @@ const Page = async ({ params }: { params: Promise<{ productsName: string }> }) =
             />
           </div>
           <div className="flex justify-center flex-col">
-            <h1 className="text-2xl text-black tracking-wide">{product.name}</h1>
-            <p className="text-lg mt-2 text-black tracking-wide">${product.price}</p>
+            <h1 className="text-2xl text-black tracking-wide">
+              {product.name}
+            </h1>
+            <p className="text-lg mt-2 text-black tracking-wide">
+              ${product.price}
+            </p>
             <div className="mt-8 w-full">
               <h4 className="text-lg text-gray-600">Description</h4>
-              <p className="max-w-[500px] mt-5 text-gray-600">{product.description}</p>
+              <p className="max-w-[500px] mt-5 text-gray-600">
+                {product.description}
+              </p>
               <div className="mt-5">
                 <h4 className="text-lg text-gray-600">Features:</h4>
                 <ul className="mt-5 text-gray-600 list-disc pl-5">
@@ -68,7 +78,10 @@ const Page = async ({ params }: { params: Promise<{ productsName: string }> }) =
               </div>
               <div className="mt-5 flex gap-2 flex-wrap">
                 {product.tags.map((tag, index) => (
-                  <span key={index} className="px-2 py-1 text-sm bg-gray-200 text-gray-700 rounded-lg">
+                  <span
+                    key={index}
+                    className="px-2 py-1 text-sm bg-gray-200 text-gray-700 rounded-lg"
+                  >
                     {tag}
                   </span>
                 ))}
@@ -79,15 +92,21 @@ const Page = async ({ params }: { params: Promise<{ productsName: string }> }) =
               <div className="flex justify-between w-[350px] mt-5 max-lg:w-[300px]">
                 <div>
                   <p>Height</p>
-                  <p className="text-gray-600 mt-1">{product.dimensions.height}</p>
+                  <p className="text-gray-600 mt-1">
+                    {product.dimensions.height}
+                  </p>
                 </div>
                 <div>
                   <p>Width</p>
-                  <p className="text-gray-600 mt-1">{product.dimensions.width}</p>
+                  <p className="text-gray-600 mt-1">
+                    {product.dimensions.width}
+                  </p>
                 </div>
                 <div>
                   <p>Depth</p>
-                  <p className="text-gray-600 mt-1">{product.dimensions.depth}</p>
+                  <p className="text-gray-600 mt-1">
+                    {product.dimensions.depth}
+                  </p>
                 </div>
               </div>
             </div>
@@ -99,11 +118,16 @@ const Page = async ({ params }: { params: Promise<{ productsName: string }> }) =
               <div className="max-lg:m-6">
                 <Link href="/sections/Cart">
                   <AddtoCard
-                    product={{
-                      img: urlFor(product.image).url(),
-                      name: product.name,
-                      price: product.price,
-                    }}
+                    product={
+                      {
+                        _id: product._id,
+                        image: product.image,
+                        name: product.name,
+                        price: product.price,
+                        description: product.description,
+                        quantity: product.quantity,
+                      } as ProductTypes
+                    }
                   />
                 </Link>
               </div>
@@ -112,7 +136,9 @@ const Page = async ({ params }: { params: Promise<{ productsName: string }> }) =
         </div>
       </div>
       <div className="mt-10 ">
-        <h1 className="text-black text-center text-[30px] max-sm:text-[24px]">You might also like</h1>
+        <h1 className="text-black text-center text-[30px] max-sm:text-[24px]">
+          You might also like
+        </h1>
         <Ceramics />
       </div>
       <Features />

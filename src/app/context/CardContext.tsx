@@ -1,19 +1,14 @@
 "use client";
-import { StaticImageData } from "next/image";
 import { useContext, createContext, useState, ReactNode } from "react";
+import { ProductTypes } from "../../../types/products";
 
-type CartItem = {
-  img: string | StaticImageData;
-  name: string;
-  price: number | string;
-  quantity: number;
-};
+type CartItem = ProductTypes;
 
 type CartType = {
   cartItems: CartItem[];
   addToCart: (item: CartItem) => void;
   getSubTotal: () => number;
-  removeFromCart: (itemName: string) => void;
+  removeFromCart: (itemId: string) => void;
 };
 
 const CartContext = createContext<CartType | undefined>(undefined);
@@ -21,48 +16,31 @@ const CartContext = createContext<CartType | undefined>(undefined);
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
-  // addede product function
+  // Add product to cart
   const addToCart = (item: CartItem) => {
-    console.log("Cart Items:", cartItems);
-
     setCartItems((prevItems) => {
-      const existingItem = prevItems.find((i) => i.name === item.name);
-
+      const existingItem = prevItems.find((i) => i._id === item._id);
       if (existingItem) {
         return prevItems.map((i) =>
-          i.name === item.name ? { ...i, quantity: i.quantity + 1 } : i
+          i._id === item._id ? { ...i, quantity: i.quantity + 1 } : i
         );
       }
-
       return [...prevItems, item];
     });
   };
 
-  // Sub total function
+  // Subtotal calculation
   const getSubTotal = () => {
-    const total = cartItems.reduce((acc, item) => {
-      // Extract the numeric part of the price string (e.g., "£250" becomes 250)
-      const price =
-        parseFloat(item.price.toString().replace(/[^\d.-]/g, "")) || 0;
-      const quantity = parseInt(item.quantity.toString(), 10) || 1;
-
-      return acc + price * quantity; // Calculate total
-    }, 0);
-
-    return isNaN(total) ? 0 : total;
+    return cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
   };
 
-  // Remove Product
-  const removeFromCart = (itemName: string) => {
-    setCartItems((prevItems) =>
-      prevItems.filter((item) => item.name !== itemName)
-    );
+  // Remove product from cart
+  const removeFromCart = (itemId: string) => {
+    setCartItems((prevItems) => prevItems.filter((item) => item._id !== itemId));
   };
 
   return (
-    <CartContext.Provider
-      value={{ cartItems, addToCart, getSubTotal, removeFromCart }}
-    >
+    <CartContext.Provider value={{ cartItems, addToCart, getSubTotal, removeFromCart }}>
       {children}
     </CartContext.Provider>
   );

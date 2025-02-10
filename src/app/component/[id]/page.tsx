@@ -11,7 +11,7 @@ import QuantityButton from "@/app/component/QuantityButton";
 import AddtoCard from "@/app/component/AddtoCard";
 
 const Page = ({ params }: { params: Promise<{ id: string }> }) => {
-  const { id } = use(params); 
+  const { id } = use(params);
 
   const [product, setProduct] = useState<ProductTypes | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -47,7 +47,7 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
               alt={`Product: ${product.name}`}
               width={400}
               height={300}
-              className="w-auto h-auto max-w-[400px] max-h-[300px]"
+              className="w-[400px] h-[300px]"
               priority
             />
           </div>
@@ -120,11 +120,16 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
               <div className="max-lg:m-6 mb-3">
                 <Link href="/sections/Cart">
                   <AddtoCard
-                    product={{
-                      img: urlFor(product.image).url(),
-                      name: product.name,
-                      price: product.price,
-                    }}
+                    product={
+                      {
+                        _id: product._id,
+                        image: product.image,
+                        name: product.name,
+                        price: product.price,
+                        description: product.description,
+                        quantity: product.quantity,
+                      } as ProductTypes
+                    }
                   />
                 </Link>
               </div>

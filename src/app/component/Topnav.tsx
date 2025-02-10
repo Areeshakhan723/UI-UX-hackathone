@@ -1,11 +1,9 @@
 "use client";
-import { CircleUser,  Truck } from "lucide-react";
+import { CircleUser, Truck } from "lucide-react";
 import Link from "next/link";
 import ShoppingIcon from "./ShoppingIcon";
-import SearchComponent from "@/app/component/SearchComponent";
 
 const Topnav = () => {
-
   return (
     <>
       <div className="bg-DarkPrimary py-3 h-auto">
@@ -18,7 +16,7 @@ const Topnav = () => {
       </div>
 
       {/* navbar links */}
-      <div className="max-container p-3 px-[40px] flex justify-between items-center border-b-2 border-BorderGrey max-lg:hidden">
+      <div className="max-container p-3 px-[40px] h-auto w-auto flex justify-between items-center border-b-2 border-BorderGrey max-lg:hidden">
         <h1 className="text-black text-[24px]">Avion</h1>
         <header className="max-lg:hidden">
           <ul className="text-[#726E8D] flex justify-center items-center gap-6 md:text-[16px] lg:text-[18px] max-lg:hidden">
@@ -37,17 +35,15 @@ const Topnav = () => {
             <li>
               <Link href="/sections/Signup">SignUp</Link>
             </li>
-
           </ul>
         </header>
-        <div className="flex justify-center items-center gap-3">
-          
-          {/* Add Search Component */}
-          <SearchComponent />
-          {/* shopping component */}
-          <ShoppingIcon />
-
-          <CircleUser />
+        <div className="flex justify-between items-center gap-3 flex-row w-auto h-auto">
+          <div className="flex justify-center items-center">
+            <ShoppingIcon />
+          </div>
+          <div className="flex justify-center items-center">
+            <CircleUser height={24} width={24} />
+          </div>
         </div>
       </div>
     </>

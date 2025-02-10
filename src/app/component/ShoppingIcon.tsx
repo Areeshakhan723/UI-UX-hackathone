@@ -6,7 +6,7 @@ const ShoppingIcon = () => {
   return (
     //  shopping icon
     <div className="flex relative items-start justify-start">
-      <ShoppingCart className="text-gray-700" />
+      <ShoppingCart className="text-gray-700" height={24} width={24} />
       <div className="absolute top-0 right-3 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex justify-center items-center">
         {quantity}
       </div>
