@@ -162,7 +162,7 @@ const Sidebar: React.FC = () => {
             <div className="space-y-2">
               {["Robert Smith", "Liam Gallagher"].map((item) => (
                 <label key={item} className="flex items-center gap-3 mt-3">
-                  <i_nput
+                  <input
                     type="checkbox"
                     checked={filters.designer === item}
                     onChange={() => handleFilterChange("designer", item)}
