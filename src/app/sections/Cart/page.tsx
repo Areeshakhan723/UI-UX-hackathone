@@ -41,7 +41,6 @@ const Page = () => {
                   <div>
                     <div className="flex ">
                       <Image
-                        // src={urlFor(product.image).url()}
                         src={product.image ? urlFor(product.image)?.url() : "/fallback-image.jpg"}
                         alt={product.name}
                         width={100}
@@ -100,7 +99,7 @@ const Page = () => {
                   </p>
                 </div>
                 <div>
-                  <button className="bg-DarkPrimary text-center hover:bg-Primary text-sm font-medium text-LightGrey px-5 py-4">
+                  <button className="bg-DarkPrimary text-center hover:bg-Primary text-sm font-medium text-LightGrey px-5 py-4 transition duration-300 hover:scale-110">
                   <Link href="/sections/Checkout">Go to checkout</Link>
                   </button>
                 </div>

@@ -1,10 +1,11 @@
-"use client"
+// checkout/page.tsx
+"use client";
 import { useCart } from "@/app/context/CardContext";
-import Checkout from "@/app/component/Checkout";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import Topnav from "@/app/component/Topnav";
 import MobileNav from "@/app/component/MobileNavbar";
+import Checkout from "@/app/component/Checkout";
 
 const Page = () => {
   const { cartItems, getSubTotal } = useCart();
@@ -12,8 +13,8 @@ const Page = () => {
   return (
     <div className="bg-backgroundWhite">
       <Topnav />
-          
-          <MobileNav />
+
+      <MobileNav />
       <div className="flex flex-wrap gap-6 max-md:flex-col max-container">
         {/* Checkout Form */}
         <div className="flex-1 bg-white">
@@ -30,8 +31,11 @@ const Page = () => {
               <div className="flex flex-col">
                 <div>
                   <Image
-                    // src={urlFor(items.image).url()}
-                    src={items.image ? urlFor(items.image)?.url() : "/fallback-image.jpg"}
+                    src={
+                      items.image
+                        ? urlFor(items.image)?.url()
+                        : "/fallback-image.jpg"
+                    }
                     alt={items.name}
                     width={80}
                     height={100}

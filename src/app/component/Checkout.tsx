@@ -1,12 +1,17 @@
+//componenet/checkout input file
 "use client";
 
 import { useState } from "react";
 import Swal from "sweetalert2";
+import { useCart } from "../context/CardContext";
+import { client } from "@/sanity/lib/client";
 
-const Checkout  = () => {
+const Checkout = () => {
+  const { cartItems, getSubTotal } = useCart();
+
   const [formData, setFormData] = useState({
     email: "",
-    country: "",
+    phoneNumber: "",
     firstName: "",
     lastName: "",
     address: "",
@@ -16,15 +21,18 @@ const Checkout  = () => {
   });
 
   // fuction
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleEvent = () => {
+
+  const handleEvent = async () => {
     const {
       email,
-      country,
+      phoneNumber,
       firstName,
       lastName,
       address,
@@ -32,10 +40,9 @@ const Checkout  = () => {
       paymentMethod,
     } = formData;
 
-    // Check if required fields are filled
     if (
       !email ||
-      !country ||
+      !phoneNumber ||
       !firstName ||
       !lastName ||
       !address ||
@@ -48,14 +55,60 @@ const Checkout  = () => {
         title: "Please fill all required fields",
         showConfirmButton: true,
       });
-    } else {
-      Swal.fire({
-        position: "center",
-        icon: "success",
-        title: "Successfully submitted",
-        showConfirmButton: true,
-        timer: 2000,
-      });
+      return; // Stop execution if validation fails
+    }
+
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Successfully submitted",
+      showConfirmButton: true,
+      timer: 2000,
+    });
+
+    const OrderData = {
+      _type: "order",
+      email: formData.email,
+      phoneNumber: formData.phoneNumber,
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      address: formData.address,
+      city: formData.city,
+      postalCode: formData.postalCode,
+      paymentMethod: formData.paymentMethod,
+      cartItems: cartItems.map((items) => ({
+        _key: items._id,
+        _type: "reference",
+        _ref: items._id,
+      })),
+      total: getSubTotal().toString(),
+      orderDate: new Date().toISOString(),
+      orderStatus: "pending", // Default order status
+    };
+
+    try {
+      const data = await client.create(OrderData);
+      console.log("Order created:", data);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Failed to submit order",
+          text: error.message || "Please try again later.",
+          showConfirmButton: true,
+        });
+        console.error("Sanity data submission error:", error.message);
+      } else {
+        console.error("Sanity data submission error:", error);
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Failed to submit order",
+          text: "An unknown error occurred. Please try again later.",
+          showConfirmButton: true,
+        });
+      }
     }
   };
 
@@ -77,10 +130,10 @@ const Checkout  = () => {
         <h1 className="font-semibold text-lg">Delivery</h1>
         <input
           type="text"
-          name="country"
-          value={formData.country}
+          name="phoneNumber"
+          value={formData.phoneNumber}
           onChange={handleChange}
-          placeholder="Country/Region"
+          placeholder="Enter Your Phone number"
           className="w-full border-2 border-bordergrey p-2 rounded-md mt-2 outline-none"
         />
       </div>
@@ -154,5 +207,4 @@ const Checkout  = () => {
   );
 };
 
-
-export default Checkout
+export default Checkout;

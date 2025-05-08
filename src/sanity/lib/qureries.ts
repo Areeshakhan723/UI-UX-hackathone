@@ -1,4 +1,4 @@
-import {groq} from "next-sanity";
+import groq from "groq";
 
 export const allproducts = groq `*[_type == "product"]`;
 export const category = groq `*[_type == "product"][0..3]`;

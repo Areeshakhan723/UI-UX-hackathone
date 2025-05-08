@@ -53,7 +53,7 @@ const Page = async ({
               width={400}
               height={300}
               className="w-auto h-auto max-w-[400px] max-h-[300px]"
-              priority
+              priority={true}
             />
           </div>
           <div className="flex justify-center flex-col">
