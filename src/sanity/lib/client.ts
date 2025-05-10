@@ -6,6 +6,6 @@ export const client = createClient({
   projectId,
   dataset,
   apiVersion,
-  useCdn: true, // CDN on for client-side
+  useCdn: false, // CDN on for client-side
   token: SANITY_API_TOKEN,
 })
