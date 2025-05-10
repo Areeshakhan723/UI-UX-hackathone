@@ -11,10 +11,10 @@ export const projectId = assertValue(
   'Missing environment variable: NEXT_PUBLIC_SANITY_PROJECT_ID'
 )
 
-export const SANITY_API_TOKEN = typeof window === "undefined" 
-  ? assertValue(process.env.SANITY_API_TOKEN, "Missing environment variable: SANITY_API_TOKEN")
-  : undefined;
-
+export const token = assertValue(
+  process.env.SANITY_API_TOKEN,
+  'Missing environment variable: SANITY_API_TOKEN'
+)
 
 function assertValue<T>(v: T | undefined, errorMessage: string): T {
   if (v === undefined) {
